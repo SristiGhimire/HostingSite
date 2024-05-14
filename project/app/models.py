@@ -1,0 +1,158 @@
+from django.db import models
+from ckeditor.fields import RichTextField
+from django.db.models.fields.files import ImageField 
+
+# Create your models here.
+
+class Service(models.Model):
+    logo = models.ImageField(upload_to= 'Serviceimage/')
+    title = models.CharField(max_length=200)
+    description = RichTextField()
+   
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering =['-id']
+
+class HostingService(models.Model):
+    logo = models.ImageField(upload_to= 'HostingServiceimage/')
+    title = models.CharField(max_length=200)
+    description = RichTextField()
+   
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering =['-id']
+
+
+
+class Question(models.Model):
+    question = models.CharField(max_length=50)
+    answer = RichTextField()
+
+    def __str__(self):
+        return self.question
+ 
+
+class Hosting(models.Model):
+    logo = models.ImageField(upload_to= 'Hostingimage/')
+    title = models.CharField(max_length=200)
+    description = RichTextField()
+   
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering =['-id']
+        
+
+selectPackage =(
+    ('personal','Personal'),
+    ('business','Business'),
+    ('enterprise','Enterprise'))
+
+
+class HostingPackage(models.Model):
+    hosting= models.ForeignKey(Hosting,on_delete= models.SET_NULL,null=True, blank=True,  related_name ='hostings')
+    selectPackages=models.CharField(max_length=150, choices=selectPackage)
+    storage=models.FloatField()
+    bandwidth=models.CharField(max_length=200)
+    support=models.BooleanField(default=True)
+    domain=models.BooleanField(default=True)
+    accountResold=models.PositiveIntegerField()
+    feePerMonth=models.FloatField()
+    
+    def __str__(self):
+        return self.hosting
+
+
+    class Meta:
+        ordering =['-id']
+
+
+
+class About(models.Model):
+    image=models.FileField(upload_to="aboutimage")
+    title=models.CharField(max_length=200)
+    description=RichTextField()
+
+    def __str__(self):
+        return self.title
+    
+
+
+
+
+
+class Client(models.Model):
+    logo=models.FileField(upload_to="clientlogo")
+    url=models.URLField()
+
+    def __str__(self):
+        return self.url
+    
+    class Meta:
+        ordering =['-id']
+
+class Contact(models.Model):
+    name=models.CharField(max_length=200)
+    email=models.EmailField()
+    subject=models.CharField(max_length=200)
+    message=models.TextField()
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        ordering =['-id']
+
+
+class CompanyDetails(models.Model):
+    companyAddress=models.CharField(max_length=200)
+    companyPhone=models.CharField(max_length=200)
+    companyEmail=models.EmailField()
+    addressUrl=models.URLField(max_length=2000)
+    companyLogo=models.FileField(upload_to="companylogo")
+    facebookUrl = models.URLField()
+    linkedInUrl = models.URLField()
+    twiterUrl = models.URLField()
+    discordUrl = models.URLField()
+
+    def __str__(self):
+        return self.companyAddress
+    
+    class Meta:
+        ordering =['-id']
+
+
+
+class HeroBanner(models.Model):
+    image=models.FileField(upload_to="herobannerimage")
+    title=models.CharField(max_length=200)
+    description=RichTextField()
+
+    def __str__(self):
+        return self.title
+
+class SignUp(models.Model):
+    name=models.CharField(max_length=200)
+    email=models.EmailField()
+    password1=models.CharField(max_length=20)
+    password2 = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+class SignIn(models.Model):
+    email = models.EmailField()
+    password = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.email
+
+
+
+
+
