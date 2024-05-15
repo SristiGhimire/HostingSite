@@ -239,7 +239,7 @@ header
 */
 
 .background-header {
-  background-color: #d1f3ff!important;
+  background-color: #495057!important;
   height: 80px!important;
   position: fixed!important;
   top: 0px;
@@ -250,7 +250,7 @@ header
 
 .background-header .logo,
 .background-header .main-nav .nav li a {
-  color: #1e1e1e!important;
+  color: white!important;
 }
 
 .background-header .main-nav .nav li:hover a {
@@ -262,7 +262,7 @@ header
 }
 
 .header-area {
-  background-color: #d1f3ff;
+  background-color: #495057;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -277,7 +277,7 @@ header
 
 .header-area .main-nav {
   min-height: 80px;
-  background: #d1f3ff;
+  background: #495057;
 }
 
 .header-area .main-nav .logo {
@@ -358,7 +358,7 @@ header
   display: block;
   font-weight: 500;
   font-size: 15px;
-  color: #2a2a2a;
+  color: white;
   text-transform: capitalize;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -371,7 +371,7 @@ header
 }
 
 .header-area .main-nav .nav li a {
-  color: #2a2a2a;
+  color: white;
 }
 
 .header-area .main-nav .nav li:hover a,
@@ -588,7 +588,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #fe3f40;
+  color: #adb5bd;
 }
 
 @media (max-width: 1200px) {
@@ -621,7 +621,7 @@ header
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #fe3f40!important;
+    color: #adb5bd!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -682,7 +682,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #fe3f40!important;
+    color: #adb5bd!important;
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -993,6 +993,11 @@ Services Style
 .our-services {
   margin-top: 0px;
   padding-top: 120px;
+  background-image: url(../images/aboutt.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 140px 0px 120px 0px;
 }
 
 .our-services .left-image {
@@ -1289,7 +1294,7 @@ contact
 
 .contact-us {
   padding: 160px 0px;
-  background-image: url(../images/blue2.png);
+  background-image: url(../images/blue4.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1358,7 +1363,7 @@ form#contact input {
   width: 100%;
   height: 46px;
   border-radius: 33px;
-  background-color: #d1f3ff;
+  background-color: #dee2e6;
   border: none;
   outline: none;
   font-size: 15px;
@@ -1380,7 +1385,7 @@ form#contact textarea {
   min-height: 140px;
   height: 140px;
   border-radius: 20px;
-  background-color: #d1f3ff;
+  background-color: #dee2e6;
   border: none;
   outline: none;
   font-size: 15px;
@@ -1463,7 +1468,7 @@ responsive
   }
   .about-us {
     position: relative;
-    background-image: none;
+    background-image: url(../images/aboutt.png);
     padding: 0px;
   }
   .about-us .left-image {

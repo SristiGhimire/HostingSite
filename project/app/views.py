@@ -6,18 +6,37 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-    # herobanner = HeroBanner.objects.first()
-    # question = Question.objects.all()[:4]
-    # hosting = Hosting.objects.all()
+    herobanner = HeroBanner.objects.first()
+    question = Question.objects.all()
     # about = About.objects.first()
-    # service = Service.objects.all()[:3]
-    # client = Client.objects.all()
+    service = Service.objects.all()[:4]
+    client = Client.objects.all()
+    contact = Contact.objects.all()
 
     # context = {"question": question, "hosting": hosting, "about":about, "service": service, "client":client, "herobanner": herobanner}
-    return render(request, 'app/index.html')
+    context={"herobanner": herobanner, "service": service, "client":client, "question": question, "contact": contact}
+    return render(request, 'app/index.html', context)
 
 def contact(request):
-    return render(request, 'app/contact.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        surname = request.POST.get('surname')
+        email = request.POST['email']
+        message = request.POST['message']
+        contact_obj = Contact(name = name, surname = surname, email = email, message = message)
+        contact_obj.save()
+        
+        # send mail with customer query
+        subject = "New Contact Form Submission"
+        message =f"User Name : {name}\nUser Surname : {surname}\nmessage : {message}"
+        email_from = settings.EMAIL_HOST_USER
+        user_email = [email]
+        send_mail(subject, message, email_from, user_email)
+        return redirect('app:contact')
+ 
+        
+    else:
+        return render(request, 'app/contact.html')
 
 def about(request):
     return render(request, 'app/about.html')

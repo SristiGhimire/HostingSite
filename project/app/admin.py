@@ -21,7 +21,7 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'subject']
+    list_display = ['name','surname', 'email', 'message']
     ordering = ['-id']
 
 @admin.register(CompanyDetails)

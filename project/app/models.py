@@ -98,8 +98,8 @@ class Client(models.Model):
 
 class Contact(models.Model):
     name=models.CharField(max_length=200)
+    surname=models.CharField(max_length=200)
     email=models.EmailField()
-    subject=models.CharField(max_length=200)
     message=models.TextField()
 
     def __str__(self):
@@ -110,6 +110,7 @@ class Contact(models.Model):
 
 
 class CompanyDetails(models.Model):
+    companyName = models.CharField(max_length=200)
     companyAddress=models.CharField(max_length=200)
     companyPhone=models.CharField(max_length=200)
     companyEmail=models.EmailField()
