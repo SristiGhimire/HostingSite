@@ -210,7 +210,7 @@ body {
 
 .main-red-button a {
   display: inline-block;
-  background-color: #fe3f40;
+  background: linear-gradient(-45deg, #83c5be, #adb5bd);;
   font-size: 15px;
   font-weight: 400;
   color: #fff;
@@ -254,7 +254,7 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #fe3f40!important;
+  color: #adb5bd!important;
 }
 
 .background-header .nav li a.active {
@@ -262,6 +262,7 @@ header
 }
 
 .header-area {
+  /* background-color: #495057; */
   background-color: #495057;
   position: absolute;
   top: 0px;
@@ -351,7 +352,7 @@ header
 
 .header-area .main-nav .nav li:last-child a:hover,
 .header-area .main-nav .nav li:last-child a.active {
-  color: #fff !important;
+  color: #adb5bd !important;
 }
 
 .header-area .main-nav .nav li a {
@@ -376,12 +377,12 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #fe3f40!important;
+  color: #adb5bd!important;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #fe3f40!important;
+  color: #adb5bd!important;
   opacity: 1;
 }
 
@@ -448,7 +449,7 @@ header
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #fe3f40!important;
+  color: #adb5bd!important;
   padding-left: 25px;
 }
 
@@ -869,7 +870,7 @@ Banner Style
 .main-banner .left-content h6 {
   text-transform: uppercase;
   font-size: 18px;
-  color: #fe3f40;
+  color: #495057;
   margin-bottom: 15px;
 }
 
@@ -948,7 +949,7 @@ About Us Style
 }
 
 .about-us {
-  background-image: url(../images/about3.png);
+  background-image: url(../images/aboutt.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1113,7 +1114,7 @@ Portfolio
 
 .our-portfolio .hidden-content {
   background: rgb(255,77,30);
-  background: linear-gradient(105deg, rgba(255,77,30,1) 0%, rgba(255,44,109,1) 100%);
+  background: linear-gradient(-45deg, #83c5be, #adb5bd);
   padding: 30px;
   border-radius: 20px;
   text-align: center;
@@ -1135,7 +1136,7 @@ Portfolio
   bottom: -8px;
   margin-left: -5px;
   transform: rotate(45deg);
-  background: linear-gradient(105deg, rgb(52, 255, 211) 0%, rgba(255,51,78,1) 100%);
+  background: linear-gradient(-45deg, #83c5be, #adb5bd);
   z-index: -1;
 }
 
@@ -1294,7 +1295,7 @@ contact
 
 .contact-us {
   padding: 160px 0px;
-  background-image: url(../images/blue4.png);
+  background-image: url(../images/aboutt.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

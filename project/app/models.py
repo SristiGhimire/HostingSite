@@ -37,10 +37,8 @@ class Question(models.Model):
  
 
 class Hosting(models.Model):
-    logo = models.ImageField(upload_to= 'Hostingimage/')
     title = models.CharField(max_length=200)
-    description = RichTextField()
-   
+
     def __str__(self):
         return self.title
     
@@ -51,7 +49,10 @@ class Hosting(models.Model):
 selectPackage =(
     ('personal','Personal'),
     ('business','Business'),
-    ('enterprise','Enterprise'))
+    ('enterprise','Enterprise'),
+    ('standard','Standard'),
+    ('premium','Premium'),
+    ('gold','Gold'))
 
 
 class HostingPackage(models.Model):
@@ -65,7 +66,7 @@ class HostingPackage(models.Model):
     feePerMonth=models.FloatField()
     
     def __str__(self):
-        return self.hosting
+        return self.selectPackages
 
 
     class Meta:

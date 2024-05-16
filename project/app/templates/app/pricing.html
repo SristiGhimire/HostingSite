@@ -1,0 +1,78 @@
+<!-- PRICING PLAN -->
+<div class="rts-pricing-plan pricing_section sectionrounded pricingbg section_padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="rts-section text-center">
+                    <h2 class="rts-section__title" data-sal="slide-down" data-sal-delay="100" data-sal-duration="800">Unleash Online Growth <br>
+                        Not Budgets.</h2>
+                    <p class="rts-section__description" data-sal="slide-down" data-sal-delay="200" data-sal-duration="800">shared hosting is the easiest, most economical</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-4 col-md-5">
+                <div class="rts-pricing-plan__tab">
+                    <div class="tab__button">
+                        <div class="tab_button_item">
+                            {% for item in hosting %}
+                            <button class="tab__btn {% if forloop.counter == 2 %} active {% endif %}" data-tab="monthly{{item.id}}">{{item.title}}</button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="discount">
+                        <span class="line">
+                            <img src="{% static 'app/images/pricing/offer__vactor.svg' %}" height="20" width="85" alt="">
+                        </span>
+                        <p>20% save</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PRICING PLAN -->
+        {% for item in hosting %}
+        <div class="tab__content {% if forloop.counter == 2 %} open {% endif %}" id="monthly{{item.id}}">
+            <div class="row monthly g-30">
+                {% for hosting_option in item.hostings.all %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-plan has-box-shadow {% if forloop.counter == 2 %} active {% endif %}">
+                        <div class="single-plan__content">
+                            <div class="plan-icon">
+                                <svg width="43" height="39" viewBox="0 0 43 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Your SVG path here -->
+                                </svg>
+                            </div>
+                            <h4 class="plan-title">{{ hosting_option.selectPackages }} Plan</h4>
+                            <p class="description">Added privacy and security features</p>
+                            <div class="border-separator"></div>
+                            <div class="plan-feature">
+                                <ul class="plan-feature__list">
+                                    <li>
+                                        <span><i class="fa-solid fa-check"></i> </span>
+                                        24/7 Real-time Monitoring
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-check"></i> </span> Regular Security Patching
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-check"></i> </span> Unlimited Application
+                                        Installation
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-check"></i> </span> Free Object Cache Pro
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="buy_plan btn_two">
+                                Price: ${{ hosting_option.price }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- PRICING PLAN END -->

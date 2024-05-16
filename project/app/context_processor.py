@@ -12,9 +12,14 @@ def service(request):
         'service':service
     }
 
-
 def about(request):
     about = About.objects.first()
     return{
         'about': about
+    }
+
+def hosting(request):
+    hosting = Hosting.objects.all()[:3]
+    return{
+        'hosting': hosting
     }

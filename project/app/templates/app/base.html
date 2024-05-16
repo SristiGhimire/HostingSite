@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/components/faqs/faq-3/assets/css/faq-3.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 	
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700&display=swap" rel="stylesheet">
@@ -85,7 +88,7 @@ https://templatemo.com/tm-562-space-dynamic
     }
     .price-sec .price-table .card {
       position: relative;
-      max-width: 300px;
+      max-width: 320px;
       height: auto;
       background: linear-gradient(-45deg, #fe0847, #feae3f);
       border-radius: 15px;
@@ -101,19 +104,19 @@ https://templatemo.com/tm-562-space-dynamic
     
     .price-table:nth-child(1) .card,
     .price-table:nth-child(1) .card .title i {
-      background: linear-gradient(-45deg, #83c5be, #adb5bd);
+      background: linear-gradient(-45deg, #64b5f6, #0077b6);
       {% comment %} background: linear-gradient(-45deg, #f403d1, #64b5f6); {% endcomment %}
     }
     .price-table:nth-child(2) .card,
     .price-table:nth-child(2) .card .title i {
-      background: linear-gradient(-45deg, #83c5be, #adb5bd);
-      {% comment %} background: linear-gradient(-45deg, #24ff72, #9a4eff); {% endcomment %}
+      background: linear-gradient(-45deg, #64b5f6, #0077b6);
+      {% comment %} background: linear-gradient(-45deg, #24ff72, #9a4eff); #83c5be{% endcomment %}
       {% comment %} background: linear-gradient(-45deg, #fe6c61, #f321d7); {% endcomment %}
     }
     
     .price-table:nth-child(3) .card,
     .price-table:nth-child(3) .card .title i {
-      background: linear-gradient(-45deg, #83c5be, #adb5bd);
+      background: linear-gradient(-45deg, #64b5f6, #0077b6);
       {% comment %} background: linear-gradient(-45deg, #24ff72, #9a4eff); {% endcomment %}
     }
     .price-table .card:before {
@@ -245,8 +248,14 @@ https://templatemo.com/tm-562-space-dynamic
     
 </style>
 
-<!--Style for Client section-->
-
+<!--Style for footer icon section-->
+<style>
+  .icon {
+      color: white;
+      font-size: 24px;
+      margin: 10px;
+  }
+</style>
 
 </head>
 
@@ -273,7 +282,7 @@ https://templatemo.com/tm-562-space-dynamic
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="{% url 'app:index' %}">
-              <img src="{{footer.companyLogo.url}}" style="height: 80px; width: 150px;">
+              <img src="{{footer.companyLogo.url}}" style="height: 80px; width: 200px;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -365,7 +374,7 @@ https://templatemo.com/tm-562-space-dynamic
             </div>
 </footer> {% endcomment %}
 
-<style>
+{% comment %} <style>
         @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
       * {
@@ -559,101 +568,65 @@ https://templatemo.com/tm-562-space-dynamic
 
       }
 
-</style>
+</style> {% endcomment %}
 
 <footer class="footer-10" >
-  <div class="container" style="margin-top: 150px;">
-      {% comment %} <div class="row mb-5 pb-3 no-gutters">
-          <div class="col-md-4 mb-md-0 mb-4 d-flex">
-              <div class="con con-1 w-100 py-5">
-                  <div class="con-info w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                          <span class="ion-ios-call"></span>
-                      </div>
-                      <div class="text">
-                          <span>(+00) 1234 5678</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4 mb-md-0 mb-4 d-flex">
-              <div class="con con-2 w-100 py-5">
-                  <div class="con-info w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                          <span class="ion-ios-mail"></span>
-                      </div>
-                      <div class="text">
-                          <span>info@email.com</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4 mb-md-0 mb-4 d-flex">
-              <div class="con con-3 w-100 py-5">
-                  <div class="con-info w-100 text-center">
-                      <div class="icon d-flex align-items-center justify-content-center">
-                          <span class="ion-ios-pin"></span>
-                      </div>
-                      <div class="text">
-                          <span>203 Fake St. Mountain View, San Francisco, California, USA</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div> {% endcomment %}
+  <div class="container">
       <div class="row ">
+        <div class="col-md-5 mb-md-0 mb-4 mt-5">
+          <h2 class="footer-heading">Subscribe</h2>
+          <form action="#" class="subscribe-form">
+            <div class="form-group d-flex">
+              <input type="text" class="form-control rounded-left" placeholder="Enter email address">
+              <button type="submit" class="form-control submit rounded-right">Subscribe</button>
+            </div>
+            <span class="subheading">Get hosting updates in your mailbox</span>
+          </form>
+      </div>
           <div class="col-md-7 mt-5">
               <div class="row">
+                <div class="col-md-5 mb-md-0 mb-5">
+                  <h2 class="footer-heading">Reach us</h2>
+                  <ul class="list-unstyled">
+                      <li><a href="#" class="d-block"><i class="fas fa-phone icon"></i>+91-9876543451</a></li>
+                      <li><a href="#" class="d-block"><i class="fas fa-envelope icon"></i>cloudbird@gmail.com</a></li>
+                    </ul>
+              </div>
                   <div class="col-md-4 mb-md-0 mb-4">
                       <h2 class="footer-heading">About</h2>
                       <ul class="list-unstyled">
-          <li><a href="#" class="d-block">Out story</a></li>
-          <li><a href="#" class="d-block">Awards</a></li>
-          <li><a href="#" class="d-block">Our Team</a></li>
-          <li><a href="#" class="d-block">Career</a></li>
-          </ul>
+                          <li><a href="#" class="d-block">Home</a></li>
+                          <li><a href="#" class="d-block">Service</a></li>
+                          <li><a href="#" class="d-block">Hosting</a></li>
+                          <li><a href="#" class="d-block">About</a></li>
+                          <li><a href="#" class="d-block">Support</a></li>
+                        </ul>
                   </div>
-                  <div class="col-md-4 mb-md-0 mb-4">
+                  <div class="col-md-3 mb-md-0 mb-3">
                       <h2 class="footer-heading">Company</h2>
                       <ul class="list-unstyled">
-          <li><a href="#" class="d-block">Our services</a></li>
-          <li><a href="#" class="d-block">Clients</a></li>
-          <li><a href="#" class="d-block">Contact</a></li>
-          <li><a href="#" class="d-block">Press</a></li>
-          </ul>
+                          <li><a href="#" class="d-block">Our services</a></li>
+                          <li><a href="#" class="d-block">Clients</a></li>
+                          <li><a href="#" class="d-block">Contact</a></li>
+                          <li><a href="#" class="d-block">Press</a></li>
+                        </ul>
                   </div>
-                  <div class="col-md-4 mb-md-0 mb-4">
-                      <h2 class="footer-heading">Resources</h2>
-                      <ul class="list-unstyled">
-          <li><a href="#" class="d-block">Blog</a></li>
-          <li><a href="#" class="d-block">Newsletter</a></li>
-          <li><a href="#" class="d-block">Privacy Policy</a></li>
-          </ul>
-                  </div>
+                  
               </div>
-          </div>
-          <div class="col-md-5 mb-md-0 mb-4 mt-5">
-              <h2 class="footer-heading">Subscribe</h2>
-              <form action="#" class="subscribe-form">
-  <div class="form-group d-flex">
-      <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-      <button type="submit" class="form-control submit rounded-right">Subscribe</button>
-  </div>
-  <span class="subheading">Get digital marketing updates in your mailbox</span>
-  </form>
-          </div>
-      </div>
+        </div>
+        
+    </div>
       <div class="row mt-5 pt-4 border-top">
 <div class="col-md-6 col-lg-8 mb-md-0 mb-4">
-  <p class="copyright mb-0" style="color: rgba(255, 255, 255, 0.3);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. | This template is made with <i class="ion-ios-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+  <p class="copyright mb-0" style="color: rgba(255, 255, 255, 0.3);">{{footer.companyName}} | 
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. | This is made by <a href="" target="_blank">kitwosd</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 </div>
 <div class="col-md-6 col-lg-4 text-md-right">
   <ul class="ftco-footer-social p-0" style="color: black;">
-  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="ion-logo-twitter"></span></a></li>
-  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="ion-logo-facebook"></span></a></li>
-  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="ion-logo-instagram"></span></a></li>
+  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fab fa-twitter icon"></i></a></li>
+  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook icon"></i></a></li>
+  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="LinkedIn"><i class="fab fa-linkedin icon"></i></span></a></li>
   </ul>
 </div>
 </div>

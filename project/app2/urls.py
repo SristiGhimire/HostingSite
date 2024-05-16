@@ -9,10 +9,10 @@ urlpatterns = [
     # path('servicelist',views.servicelist, name='servicelist'),
     # path('addservice',views.addservice, name='addservice'),
     path('team',views.team, name='team'),
-    path('add/hosting',views.add_edit_Hosting, name='add_Hosting'),
-    path('edit/hosting/<int:id>/',views.add_edit_Hosting, name='edit_Hosting'),
-    path('Hosting/', HostingListView.as_view(), name='Hosting'),
-    path('Hosting-delete/<int:id>/', HostingDeleteView.as_view(), name='deleteHosting'),
+    # path('add/hosting',views.add_edit_Hosting, name='add_Hosting'),
+    # path('edit/hosting/<int:id>/',views.add_edit_Hosting, name='edit_Hosting'),
+    # path('Hosting/', HostingListView.as_view(), name='Hosting'),
+    # path('Hosting-delete/<int:id>/', HostingDeleteView.as_view(), name='deleteHosting'),
 
     path('add/about',views.add_edit_About, name='add_About'),
 

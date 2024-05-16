@@ -69,6 +69,7 @@ TEMPLATES = [
                 'app.context_processor.footer',
                 'app.context_processor.about',
                 'app.context_processor.service',
+                'app.context_processor.hosting',
             ],
         },
     },

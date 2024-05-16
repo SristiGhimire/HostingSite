@@ -210,7 +210,7 @@ body {
 
 .main-red-button a {
   display: inline-block;
-  background-color: #fe3f40;
+  background: #64b5f6;
   font-size: 15px;
   font-weight: 400;
   color: #fff;
@@ -239,7 +239,8 @@ header
 */
 
 .background-header {
-  background-color: #495057!important;
+  /* background-color: #0077b6!important; */
+  background-color: #0077b6!important;
   height: 80px!important;
   position: fixed!important;
   top: 0px;
@@ -254,7 +255,7 @@ header
 }
 
 .background-header .main-nav .nav li:hover a {
-  color: #fe3f40!important;
+  color: #adb5bd!important;
 }
 
 .background-header .nav li a.active {
@@ -262,7 +263,8 @@ header
 }
 
 .header-area {
-  background-color: #495057;
+  /* background-color: #0077b6; */
+  background-color: #0077b6;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -273,11 +275,13 @@ header
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .header-area .main-nav {
   min-height: 80px;
-  background: #495057;
+  background: #0077b6;
+  
 }
 
 .header-area .main-nav .logo {
@@ -330,6 +334,7 @@ header
   transition: all 0.3s ease 0s;
   position: relative;
   z-index: 999;
+  
 }
 
 .header-area .main-nav .nav li {
@@ -351,7 +356,7 @@ header
 
 .header-area .main-nav .nav li:last-child a:hover,
 .header-area .main-nav .nav li:last-child a.active {
-  color: #fff !important;
+  color: #adb5bd !important;
 }
 
 .header-area .main-nav .nav li a {
@@ -376,12 +381,12 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #fe3f40!important;
+  color: #adb5bd!important;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #fe3f40!important;
+  color: #adb5bd!important;
   opacity: 1;
 }
 
@@ -448,7 +453,7 @@ header
 
 .header-area .main-nav .nav li.submenu ul li a:hover {
   background: #fff;
-  color: #fe3f40!important;
+  color: #adb5bd!important;
   padding-left: 25px;
 }
 
@@ -869,7 +874,7 @@ Banner Style
 .main-banner .left-content h6 {
   text-transform: uppercase;
   font-size: 18px;
-  color: #fe3f40;
+  color: #0077b6;
   margin-bottom: 15px;
 }
 
@@ -948,7 +953,7 @@ About Us Style
 }
 
 .about-us {
-  background-image: url(../images/aboutt.png);
+  background-image: url(../images/blueabout.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -983,6 +988,10 @@ About Us Style
   color: #fff;
 }
 
+.about-us .col-lg-8 p{
+  color: white;
+}
+
 
 /* 
 ---------------------------------------------
@@ -993,7 +1002,7 @@ Services Style
 .our-services {
   margin-top: 0px;
   padding-top: 120px;
-  background-image: url(../images/aboutt.png);
+  background-image: url(../images/blueabout.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1113,7 +1122,7 @@ Portfolio
 
 .our-portfolio .hidden-content {
   background: rgb(255,77,30);
-  background: linear-gradient(-45deg, #83c5be, #adb5bd);
+  background: linear-gradient(-45deg, #64b5f6, #0077b6);
   padding: 30px;
   border-radius: 20px;
   text-align: center;
@@ -1135,7 +1144,7 @@ Portfolio
   bottom: -8px;
   margin-left: -5px;
   transform: rotate(45deg);
-  background: linear-gradient(-45deg, #83c5be, #adb5bd);
+  background: linear-gradient(-45deg, #64b5f6, #0077b6);
   z-index: -1;
 }
 
@@ -1294,7 +1303,7 @@ contact
 
 .contact-us {
   padding: 160px 0px;
-  background-image: url(../images/aboutt.png);
+  background-image: url(../images/blueabout.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1468,7 +1477,7 @@ responsive
   }
   .about-us {
     position: relative;
-    background-image: url(../images/aboutt.png);
+    background-image: url(../images/blueabout.png);
     padding: 0px;
   }
   .about-us .left-image {
