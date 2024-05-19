@@ -21,6 +21,9 @@
 
         <!-- Icons css -->
         <link href="{% static 'app2/assets/css/icons.min.css'%}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
         
         <!-- Bootstrap Datepicker css -->
@@ -231,7 +234,7 @@
 
                     <li class="side-nav-item">
                         <a  href="{% url 'dashboard:index' %}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
-                            <i class="uil-home-alt"></i>
+                            <i class="fas fa-home"></i>
                             <span> Dashboards </span>
                         </a>
                     </li>
@@ -258,15 +261,14 @@
                         </div>
                     </li> {% endcomment %}
 
-
                     <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarPagesError" aria-expanded="false" aria-controls="sidebarPagesError" class="side-nav-link">
-                            <i class="uil-folder-plus"></i>
-                            <span>Service</span>
+                        <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false" aria-controls="sidebarIcons" class="side-nav-link">
+                            <i class="uil-streering"></i>
+                            <span> Service </span>
                             <span class="menu-arrow"></span>
                         </a>
-                        <div class="collapse" id="sidebarPagesError">
-                            <ul class="side-nav-third-level">
+                        <div class="collapse" id="sidebarIcons">
+                            <ul class="side-nav-second-level">
                                 <li>
                                     <a href="{% url 'dashboard:add_Service' %}">Add service</a>
                                 </li>
@@ -275,6 +277,9 @@
                                 </li>
                             </ul>
                         </div>
+                    </li>
+
+                    
 
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarBaseUI" aria-expanded="false" aria-controls="sidebarBaseUI" class="side-nav-link">
@@ -297,7 +302,7 @@
 
                     <li class="side-nav-item">
                         <a href="{% url 'dashboard:add_About' %}" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
-                            <i class="uil-envelope"></i>
+                            <i class="fa fa-cloud"></i>
                             <span> About </span>
                         </a>
                     </li>
@@ -305,7 +310,7 @@
 
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
-                            <i class="uil-envelope"></i>
+                            <i class="fas fa-question-circle question-answer-icon"></i>
                             <span>FAQ</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -330,7 +335,7 @@
 
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
-                            <i class="uil-envelope"></i>
+                            <i class="fas fa-users team-icon"></i>
                             <span> Our clients </span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -349,7 +354,7 @@
 
                     <li class="side-nav-item">
                         <a href="{% url 'dashboard:add_HeroBanner' %}" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
-                            <i class="uil-envelope"></i>
+                            <i class="fas fa-flag banner-icon"></i>
                             <span>Hero Banner</span>
                         </a>
                     </li>
@@ -1091,7 +1096,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <script>document.write(new Date().getFullYear())</script> © Zee News Nepal
+                        <script>document.write(new Date().getFullYear())</script> © Copyright. All rights reserved. | This is made by <a href="" target="_blank">kitwosd</a>
                     </div>
                     <div class="col-md-6">
                         {% comment %} <div class="text-md-end footer-links d-none d-md-block">
