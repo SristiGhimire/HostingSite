@@ -16,12 +16,7 @@ service list
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item active">Add Hero banner</li>
-                                        </ol>
-                                    </div>
-                                    <h4 class="page-title">Add Hero banner</h4>
+                                    <h4 class="page-title">Add Company Details</h4>
                                 </div>
                             </div>
                         </div>
@@ -88,6 +83,13 @@ service list
                                           <!-- input -->
                                         </div>
                                         <div class="col-xl-6">
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Description</label>
+                                               {{form.companyDescription}}
+                                             </div>
+
+
                                             <div class="mb-3">
                                                 <label class="form-label">Facebook URL</label>
                                                 <input type="url" name="{{ form.facebookUrl.name }}" id="{{ form.facebookUrl.id_for_label }}" class="form-control"

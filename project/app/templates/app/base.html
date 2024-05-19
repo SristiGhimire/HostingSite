@@ -280,17 +280,24 @@ https://templatemo.com/tm-562-space-dynamic
 <footer class="footer-10" >
   <div class="container">
       <div class="row ">
-        <div class="col-md-5 mb-md-0 mb-4 mt-5">
-          <h2 class="footer-heading">Subscribe</h2>
+        <div class="col-md-3 mb-md-0 mb-4 mt-5">
+          {% comment %} <h2 class="footer-heading">Subscribe</h2>
           <form action="#" class="subscribe-form">
             <div class="form-group d-flex">
               <input type="text" class="form-control rounded-left" placeholder="Enter email address">
               <button type="submit" class="form-control submit rounded-right">Subscribe</button>
             </div>
             <span class="subheading">Get hosting updates in your mailbox</span>
-          </form>
+          </form> {% endcomment %}
+          <ul>
+            <li>
+              <img src="{{footer.companyLogo.url}}" alt="" style="height:100; width: 200px; margin-bottom:-52px">
+          
+              <p >{{footer.companyDescription|safe|truncatechars:100}}</p>
+            </li>
+          </ul>
       </div>
-          <div class="col-md-7 mt-5">
+          <div class="col-md-9 mt-5">
               <div class="row">
                 <div class="col-md-5 mb-md-0 mb-5">
                   <h2 class="footer-heading">Reach us</h2>

@@ -123,6 +123,7 @@ class CompanyDetails(models.Model):
     twiterUrl = models.URLField()
     discordUrl = models.URLField()
     livechatUrl = models.URLField()
+    companyDescription = models.TextField()
 
     def __str__(self):
         return self.companyAddress
