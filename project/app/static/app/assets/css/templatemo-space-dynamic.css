@@ -586,6 +586,7 @@ header
 
 .header-area.header-sticky {
   min-height: 80px;
+  background: #0077b6;
 }
 
 .header-area .nav {
@@ -953,7 +954,7 @@ About Us Style
 }
 
 .about-us {
-  background-image: url(../images/blueabout.png);
+  background-image: url(../images/blue2.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1002,7 +1003,7 @@ Services Style
 .our-services {
   margin-top: 0px;
   padding-top: 120px;
-  background-image: url(../images/blueabout.png);
+  background-image: url(../images/blue2.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1303,7 +1304,7 @@ contact
 
 .contact-us {
   padding: 160px 0px;
-  background-image: url(../images/blueabout.png);
+  background-image: url(../images/blue2.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -1477,7 +1478,7 @@ responsive
   }
   .about-us {
     position: relative;
-    background-image: url(../images/blueabout.png);
+    background-image: url(../images/blue2.png);
     padding: 0px;
   }
   .about-us .left-image {

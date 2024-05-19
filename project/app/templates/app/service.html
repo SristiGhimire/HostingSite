@@ -16,11 +16,11 @@ index
       <div class="row">
         {% for item in service %}
         <div class="col-lg-3 col-sm-6">
-          <a href="{% url 'app:serviceDetail' %}">
+          <a href="{% url 'app:serviceDetail' item.id  %}">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="hidden-content">
                 <h4>{{item.title}}</h4>
-                <p>{{item.description|safe}}</p>
+                <p>{{item.description|safe|truncatechars:40}}</p>
               </div>
               <div class="showed-content">
                 <img src="{{item.logo.url}}" alt="">

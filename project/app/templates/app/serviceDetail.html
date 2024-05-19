@@ -5,102 +5,67 @@ Service
 {% endblock %}
 {% block content %}
 
+
+
 <style>
-            @import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
-            .service-37 {
-            font-family: "Montserrat", sans-serif;
-            color: #8d97ad;
-            font-weight: 300;
-            }
-            
-            .service-37 h1,
-            .service-37 h2,
-            .service-37 h3,
-            .service-37 h4,
-            .service-37 h5,
-            .service-37 h6 {
-            color: #3e4555;
-            }
-            
-            .service-37 h5 {
-                font-size: 18px;
-            }
-            
-            .service-37 .subtitle {
-            color: #8d97ad;
-            line-height: 24px;
-            }
-            
-            .service-37 .card.card-shadow {
-            -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
-            box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
-            }
-            
-            .service-37 .max-600 {
-                max-width: 600px;
-            }
-            
-            .service-37 .btn-info-gradiant {
-                background: #188ef4;
-                background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
-                background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
-                background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
-                background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
-                background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
-                border: 0px;
-                color: #ffffff;
-            }
-            
-            .service-37 .btn-md {
-                padding: 15px 35px;
-                font-size: 16px;
-            }
-            
-            .service-37 .text-success-gradiant {
-                background: #2cdd9b;
-                background: -webkit-linear-gradient(legacy-direction(to right), #2cdd9b 0%, #1dc8cc 100%);
-                background: -webkit-gradient(linear, left top, right top, from(#2cdd9b), to(#1dc8cc));
-                background: -webkit-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
-                background: -o-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
-                background: linear-gradient(to right, #2cdd9b 0%, #1dc8cc 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                text-fill-color: transparent;
-            }
-            
-            .service-37 .display-5 {
-                font-size: 2.5rem;
-            }
+  .custom-box {
+    background-color: #f0f0f0; /* Your desired background color */
+    padding: 20px; /* Optional: Add some padding */
+    border-radius: 30px; /* Optional: Match the inner box border radius */
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Ensure the content is centered vertically */
+  text-align: center; /* Center text within the div */
+}
+
+
+
 </style>
 
-<div class="py-5 service-37 wrap-service37-box">
-    <div class="row no-gutters">
-      <div class="col-lg-5"> <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/features/feature37/img1.jpg" alt="wrapkit" class="img-fluid" /> </div>
-      <div class="col-lg-7 align-self-center">
-        <div class="card max-600 border-0">
-          <div class="card-body">
-            <h3 class="mb-3 text-uppercase">AWESOME EXTRA ORDINARY FLEXIBILITY</h3>
-            <p class="mt-3">You can relay on our amazing features list and also our customer services will be greatexperience for you without doubt and in no-time and with great quality for design.</p>
-            <div class="card card-shadow border-0 mb-3">
-              <div class="card-body">
-                <div class="d-block d-md-flex p-2">
-                  <div class="mr-3 align-self-center d-none d-md-block">
-                                      <span class="text-success-gradiant display-5"><i class="icon-cloud-download"></i></span>
-                                  </div>
-                  <div class="mr-2 align-self-center">
-                    <h5 class="mb-0 font-weight-normal">Awesome & cool Features </h5>
-                    <h6 class="subtitle font-weight-light">Our amazing features </h6>
-                  </div>
-                  <div class="ml-auto align-self-center"><a class="btn btn-info-gradiant rounded-pill btn-md" href="#f37"><span>Getting Started</span></a></div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div id="" class="servicedetail" style="display: flex; margin-top: 100px; margin-bottom: 80px">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-9 mt-5  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-right: 5px;">
+        <div class ="row justify-content-center">
+          <h2 class="justify-content-center" style="color:black;">{{item.title}}</h2>
+          <img src="{{item.logo.url}}" alt="" style="height:300px; width:300px; border-radius: 10px;">
+          <p style="color:white; text-align: justify;">{{item.description|safe}}</p>
         </div>
+      </div>
+
+      
+      <div class="col-lg-3 mt-5 wow fadeInRight custom-box" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-left: 30px;">
+        <div class = "row justify-content-center">
+        <div class="section-heading">
+          <h2 class="center-content" style="color:black; margin-bottom: 20px;">Other services</h2>
+        </div>
+        {% for item in relatedservice %}
+        <div class="item mb-3" data-wow-duration="1s" data-wow-delay="0.3s">
+          
+            <div class="center-content">
+              <a href="{% url 'app:serviceDetail' item.id %}" target="">
+                <img src="{{item.logo.url}}" alt="" style="width: 120px; height: 100px; border-radius: 10px;">
+              </a>
+            </div>
+        
+        <div class="showed-content center-content">
+            <h4>{{item.title}}</h4>
+            <p>{{item.description|safe|truncatechars:40}}</p>
+        </div>
+    
+</div>
+{% endfor %}
+
       </div>
     </div>
   </div>
+</div>
+</div>
 
 
 {% endblock %}

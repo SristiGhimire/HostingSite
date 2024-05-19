@@ -121,6 +121,7 @@ class CompanyDetails(models.Model):
     linkedInUrl = models.URLField()
     twiterUrl = models.URLField()
     discordUrl = models.URLField()
+    livechatUrl = models.URLField()
 
     def __str__(self):
         return self.companyAddress

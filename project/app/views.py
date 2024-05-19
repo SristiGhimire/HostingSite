@@ -41,12 +41,16 @@ def contact(request):
 def about(request):
     return render(request, 'app/about.html')
 
+def hosting(request):
+    return render(request, 'app/hosting.html')
+
 def service(request):
     return render(request, 'app/service.html')
 
-def serviceDetail(request):
-    # item = Service.objects.get(id=id)
-    return render(request, 'app/serviceDetail.html')
+def serviceDetail(request, id):
+    item = Service.objects.get(id=id)
+    relatedservice = Service.objects.all()[:3]
+    return render(request, 'app/serviceDetail.html',{'item':item, 'relatedservice' : relatedservice})
 
 
 

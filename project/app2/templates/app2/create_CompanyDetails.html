@@ -109,6 +109,11 @@ service list
                                                 <input type="url" name="{{ form.discordUrl.name }}" id="{{ form.discordUrl.id_for_label }}" class="form-control"
                                                 value="{% if instance %}{{ instance.discordUrl }}{% endif %}" placeholder="Enter discordUrl">
                                              </div>
+                                             <div class="mb-3">
+                                                <label class="form-label">Live chat URL</label>
+                                                <input type="url" name="{{ form.livechatUrl.name }}" id="{{ form.livechatUrl.id_for_label }}" class="form-control"
+                                                value="{% if instance %}{{ instance.livechatUrl }}{% endif %}" placeholder="Enter livechatUrl">
+                                             </div>
 
 
                                           {% comment %} <div class="mb-3">

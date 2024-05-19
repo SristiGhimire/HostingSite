@@ -6,6 +6,126 @@ index
 {% block content %}
 
 
+<style>
+    /* Add your styles here */
+    .nav-link {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 15px 30px; /* Adjust padding to create a better button size */
+        margin: 0 10px; /* Increase margin for better spacing */
+        text-decoration: none;
+        color: #333;
+        width: 340px;
+        transition: all 0.3s ease;
+        text-align: center; /* Center the text */
+        display: inline-block;
+        font-size: 18px; /* Adjust font size to make buttons readable */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    }
+  
+    .nav-link.active {
+        background: #64b5f6;
+        {% comment %} background: linear-gradient(-45deg, #83c5be, #adb5bd); {% endcomment %}
+        color: #fff;
+        border: linear-gradient(-45deg, #83c5be, #adb5bd);
+    }
+  
+    .nav-link:hover {
+      background: #64b5f6;
+        {% comment %} background: linear-gradient(-45deg, #83c5be, #adb5bd); {% endcomment %}
+        color: #fff;
+        border: linear-gradient(-45deg, #83c5be, #adb5bd);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+    }
+</style>
 
+<!--Hosting package-->
+<section class="price-sec" style="background-color: white; margin-top: 50px;">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row" style="margin-bottom: 60px; justify-content: center; align-items: center;">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="section-heading wow fadeIn" data-wow-duration="2s" data-wow-delay="0.2s">
+              <h2>Hosting Packages</h2>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row section-heading wow fadeInLeft mb-5" data-wow-duration="2s" data-wow-delay="0.2s" style="margin-top: 20px; margin-bottom: 100px;">
+          <ul class="nav justify-content-center">
+            {% for item in hosting %}
+            <li class="nav-item">
+              <a class="nav-link {% if forloop.counter == 2 %} active {% endif %}" aria-current="page" href="#monthly{{item.id}}" data-target="{{item.id}}">{{item.title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+  
+        {% for item in hosting %}
+        <div class="tab-content wow fadeInRight mb-5 {% if forloop.counter == 2 %} active {% else %} d-none {% endif %}" data-wow-duration="1s" data-wow-delay="0.2s" id="monthly{{item.id}}">
+          <div class="row wow fadeIn justify-content-center">
+            <!-- Card Loop -->
+            {% for hosting_option in item.hostings.all %}
+            <div class="col-sm-4 price-table">
+              <div class="card text-center">
+                <div class="title">
+                  <i class="fa fa-paper-plane"></i>
+                  <h2>Basic</h2>
+                </div>
+                <div class="price">
+                  <h4><sup>$</sup>{{hosting_option.feePerMonth}}</h4>
+                </div>
+                <div class="option">
+                  <ul>
+                    <li><i class="fa fa-check"></i> 10 GB Space</li>
+                    <li><i class="fa fa-check"></i> 3 Domain Names</li>
+                    <li><i class="fa fa-check"></i> 20 Email address</li>
+                    <li><i class="fa fa-times"></i> Live Support</li>
+                  </ul>
+                </div>
+                <a href="#">Order Now</a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+  
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const tabContents = document.querySelectorAll('.tab-content');
+  
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('data-target');
+  
+          // Remove active class from all nav links
+          navLinks.forEach(navLink => {
+            navLink.classList.remove('active');
+          });
+  
+          // Add active class to clicked nav link
+          this.classList.add('active');
+  
+          // Hide all tab contents
+          tabContents.forEach(tab => {
+            tab.classList.add('d-none');
+          });
+  
+          // Show tab content for the clicked item
+          document.getElementById('monthly' + targetId).classList.remove('d-none');
+        });
+      });
+    });
+  </script>
+  
+  
+  <!--End Hosting Packages-->
 
 {% endblock %}

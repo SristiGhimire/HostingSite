@@ -177,11 +177,12 @@ index
       }
       .faq-accordian .card .card-header h6 span {
           font-size: 1.5rem;
+          color: black;
           {% comment %} background-color: #d1f3ff; {% endcomment %}
-          background: linear-gradient(-45deg, #64b5f6, #0077b6);
+          {% comment %} background: linear-gradient(-45deg, #64b5f6, #0077b6); {% endcomment %}
       }
       .faq-accordian .card .card-header h6.collapsed {
-          color: Black;
+          color: white;
           {% comment %} background-color: #d1f3ff; {% endcomment %}
           background: linear-gradient(-45deg, #64b5f6, #0077b6);
       }
@@ -399,11 +400,11 @@ index
       <div class="row">
         {% for item in service %}
         <div class="col-lg-3 col-sm-6">
-          <a href="#">
+          <a href="{% url 'app:service' %}">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="hidden-content">
                 <h4>{{item.title}}</h4>
-                <p>{{item.description|safe}}</p>
+                <p>{{item.description|safe|truncatechars:50}}</p>
               </div>
               <div class="showed-content">
                 <img src="{{item.logo.url}}" alt="">
@@ -468,7 +469,10 @@ index
             const icon = this.querySelector('.icon');
             const isOpen = this.getAttribute('aria-expanded') === 'true';
             
+            // Collapse all icons
             document.querySelectorAll('.faq-accordian .card-header .icon').forEach(i => i.textContent = '+');
+            
+            // If it's not open, open it and change icon to "-"
             if (!isOpen) {
                 icon.textContent = '-';
             } else {
