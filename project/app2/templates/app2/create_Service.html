@@ -55,10 +55,18 @@ service list
             
                                         
                                            <div class="mb-3">
-                                            <label for="{{ form.logo.id_for_label }}" class="form-label">logo :</label>
+                                            <label for="{{ form.logo.id_for_label }}" class="form-label">Logo :</label>
                                             <input type="file" name="{{ form.logo.name }}" id="{{ form.logo.id_for_label }}" class="form-control" {% if not instance %}required{% endif %} onchange="showPreview(this);">
                                             <div id="imageContainer" style="width:auto; height:auto;">
                                                 <img class="img-fluid" id="imagePreview" src="{% if instance %}{{ instance.logo.url }}{% endif %}" alt="" >
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="{{ form.image.id_for_label }}" class="form-label">Image :</label>
+                                            <input type="file" name="{{ form.image.name }}" id="{{ form.image.id_for_label }}" class="form-control" {% if not instance %}required{% endif %} onchange="showPreview(this);">
+                                            <div id="imageContainer" style="width:auto; height:auto;">
+                                                <img class="img-fluid" id="imagePreview" src="{% if instance %}{{ instance.image.url }}{% endif %}" alt="" >
                                             </div>
                                         </div>
                                           <!-- input -->

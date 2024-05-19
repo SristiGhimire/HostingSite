@@ -7,6 +7,11 @@ class HostingForm(forms.ModelForm):
         model = Hosting
         fields = '__all__'
 
+class HostingPackageForm(forms.ModelForm):
+    class Meta:
+        model = HostingPackage
+        fields = '__all__'
+
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Service

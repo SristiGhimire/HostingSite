@@ -46,8 +46,7 @@ Hosting
                                                       
                                                         <th >Id</th>
                                                         <th >Title</th>
-                                                        <th>Logo</th>
-                                                        <th >Description</th>
+                                                        
                                                         <th style="width: 120px;">Action</th>
                                                     </tr>
                                       {%for item in details%}
@@ -62,22 +61,8 @@ Hosting
                                             <td>
                                                 {{item.title|safe|truncatechars:40}}
                                             </td>
-                                            <td>
-                                                <div class="image-gallery">
-                                                    <img class="thumbnail" src="{{item.logo.url}}" alt="Thumbnail Image">
-                                                    <!-- Add more thumbnail images here if you have multiple images in the gallery -->
-                                                </div>
-                                                <div class="modal" id="imageModal">
-                                                    <span class="close-btn" onclick="closeModal()">&times;</span>
-                                                    <img class="modal-content" id="modalImage">
-                                                </div>
                                             
-                                                <script src="script.js"></script>
-                                            </td>
-                                            <td>
-                                                {{item.description|safe|truncatechars:40}}
-                                            </td>
-                                         
+                    
                                    
                                             <td style ="display:inline-block; margin-right:5px;" >
                                                 <a href="{% url 'dashboard:edit_Hosting' item.id %}" class="font-18 text-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="uil uil-pen"></i></a>

@@ -4,6 +4,7 @@ from django.views.generic.base import View
 from .forms import *
 from django.contrib import auth
 from django.contrib import messages
+from django.forms import inlineformset_factory
 # Create your views here.
 
 def index(request):
@@ -19,32 +20,36 @@ def team(request):
     return render(request, 'app2/ourTeam.html')
 
 
-
-
-def add_edit_Hosting(request, id=None):
-    instance = None
-    try:
-        if id:
-            instance = Hosting.objects.get(pk=id)
-    except Exception as e:
-        messages.warning(request, 'An error occurred while retrieving the Hosting.')
-        return redirect('dashboard:add_Hosting')
-    if request.method == 'POST':
-        form = HostingForm(request.POST, request.FILES, instance=instance)
-        if form.is_valid():
-            form.save()
-            if instance:  # Edit operation
-                messages.success(request, 'Service edited successfully.')
-                return redirect('dashboard:edit_Hosting', id=instance.id)  # Redirect to the edited Hosting's details page
-            else:  # Add operation
-                messages.success(request, 'Hosting added successfully.')
-                return redirect('dashboard:add_Hosting')  # Redirect to the page for adding new Hostings
-        else:
-            messages.warning(request, 'Form is not valid. Please correct the errors.')
+def create_or_edit_hosting(request, hosting_id=None):
+    if hosting_id:
+        hosting_instance = get_object_or_404(Hosting, id=hosting_id)
+        HostingPackageFormSet = inlineformset_factory(Hosting, HostingPackage, form=HostingPackageForm, extra=1)
     else:
-        form = HostingForm(instance=instance)
-    context = {'form': form, 'instance': instance}
+        hosting_instance = Hosting()
+        HostingPackageFormSet = inlineformset_factory(Hosting, HostingPackage, form=HostingPackageForm,extra=1)
+    if request.method == 'POST':
+        hosting_form = HostingForm(request.POST, instance=hosting_instance)
+        formset = HostingPackageFormSet(request.POST, instance=hosting_instance)
+        if hosting_form.is_valid() and formset.is_valid():
+            hosting_instance = hosting_form.save()
+            formset.instance = hosting_instance
+            formset.save()
+            if hosting_id:
+                messages.success(request, 'Hosting Updated successfully.')
+                return redirect('dashboard:edit_Hosting', hosting_id=hosting_instance.id)
+            else:
+                messages.success(request, 'Hosting added successfully.')
+                return redirect('dashboard:add_Hosting')
+    else:
+        hosting_form = HostingForm(instance=hosting_instance)
+        formset = HostingPackageFormSet(instance=hosting_instance)
+    context = {
+        'hosting_form': hosting_form,
+        'formset': formset,
+        'is_inline_formset_used': True,
+    }
     return render(request, 'app2/create_Hosting.html', context)
+
 
 class HostingListView(View):
     template_name = 'app2/Hosting.html'

@@ -49,7 +49,7 @@ def service(request):
 
 def serviceDetail(request, id):
     item = Service.objects.get(id=id)
-    relatedservice = Service.objects.all()[:3]
+    relatedservice = Service.objects.all()[:4]
     return render(request, 'app/serviceDetail.html',{'item':item, 'relatedservice' : relatedservice})
 
 

@@ -47,6 +47,7 @@ Hosting
                                                         <th >Id</th>
                                                         <th >Title</th>
                                                         <th>Logo</th>
+                                                        <th>Image</th>
                                                         <th >Description</th>
                                                         <th style="width: 120px;">Action</th>
                                                     </tr>
@@ -65,6 +66,18 @@ Hosting
                                             <td>
                                                 <div class="image-gallery">
                                                     <img class="thumbnail" src="{{item.logo.url}}" alt="Thumbnail Image">
+                                                    <!-- Add more thumbnail images here if you have multiple images in the gallery -->
+                                                </div>
+                                                <div class="modal" id="imageModal">
+                                                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                                                    <img class="modal-content" id="modalImage">
+                                                </div>
+                                            
+                                                <script src="script.js"></script>
+                                            </td>
+                                            <td>
+                                                <div class="image-gallery">
+                                                    <img class="thumbnail" src="{{item.image.url}}" alt="Thumbnail Image">
                                                     <!-- Add more thumbnail images here if you have multiple images in the gallery -->
                                                 </div>
                                                 <div class="modal" id="imageModal">

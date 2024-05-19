@@ -1,88 +1,148 @@
 {% extends 'app2/base.html' %}
 {% load static %}
-{% block title %} 
-service list
+{% block title %}
+{% if hosting_form.instance.id  %}Edit hosting{% else %}Add hosting{% endif %}
 {% endblock %}
 {% block body %}
-            <!-- Start Page Content here -->
+<style>
+    #field_list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    #id_hostingName,#id_description , #id_fieldName{
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #CED4DA;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  [id^="id_hostingfields-"]:not([id$="-DELETE"]) {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #CED4DA;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
 
+    
+    [id^="id_hostingfields-"]:not([id$="-DELETE"]) {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #CED4DA;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    [id^="id_hostings-"]:not([id$="-DELETE"]) {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #CED4DA;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    input[type="checkbox"][name^="hostings-"] {
+        width: auto; /* Keep checkbox its default size */
+        height: auto; /* Ensure the checkbox retains its default height */
+        padding: 8px; /* Add padding around the checkbox */
+        border: 1px solid #CED4DA; /* Add a border similar to other inputs */
+        border-radius: 4px; /* Add border radius to make it look rounded */
+        box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+        margin-right: 8px; /* Add space to the right for better spacing */
+        cursor: pointer; /* Change the cursor to pointer to indicate it's clickable */
+    }
+    
+    
+</style><!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
             <div class="content-page">
                 <div class="content">
-
                     <!-- Start Content-->
                     <div class="container-fluid">
-
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item active">Add service</li>
-                                        </ol>
-                                    </div>
-                                    <h4 class="page-title">Add service</h4>
+                                    <h4 class="page-title">{% if hosting_form.instance %}Edit hosting{% else %}Add hosting{% endif %}</h4>
                                 </div>
                             </div>
                         </div>
-                        <!-- end page title -->
-
                         
-
+                    <form method="post" enctype="multipart/form-data"id="hosting_form" >
+                            {% csrf_token %}
+                            {{hosting_form.errors}}
+                                {% if messages %}
+                                {% for msg in messages %}
+                                    <div class="alert alert-{{ msg.tags }} alert-dismissible text-bg-{{ msg.tags }} border-0 fade show" role="alert">
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <strong>{% if msg.tags == 'success' %}Success{% elif msg.tags == 'warning' %}Warning{% endif %} - </strong>{{ msg.message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                       <form method="post" enctype="multipart/form-data" action="{% if instance %}{% url 'dashboard:edit_Hosting'  instance.id %}{% else %}{% url 'dashboard:add_Hosting' %}{% endif %}">
-                                          {% csrf_token %}
-                                          {{form.media}}
-                                          {% if messages %}
-                                          {% for msg in messages %}
-                                              <div class="alert alert-{{ msg.tags }} alert-dismissible text-bg-{{ msg.tags }} border-0 fade show" role="alert">
-                                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                  <strong>{% if msg.tags == 'success' %}Success{% elif msg.tags == 'warning' %}Warning{% endif %} - </strong>{{ msg.message }}
-                                              </div>
-                                          {% endfor %}
-                                      {% endif %}
-                                       <div class="row">
-                                          <!-- input -->
-                                          <div class="col-xl-6">
-                                          <div class="mb-3">
-                                             <label class="form-label">title</label>
-                                             <input type="text" name="{{ form.title.name }}" id="{{ form.title.id_for_label }}" class="form-control"
-                                             value="{% if instance %}{{ instance.title }}{% endif %}" placeholder="Enter title">
-                                          </div>
-            
-                                        
-                                           <div class="mb-3">
-                                            <label for="{{ form.logo.id_for_label }}" class="form-label">logo :</label>
-                                            <input type="file" name="{{ form.logo.name }}" id="{{ form.logo.id_for_label }}" class="form-control" {% if not instance %}required{% endif %} onchange="showPreview(this);">
-                                            <div id="imageContainer" style="width:auto; height:auto;">
-                                                <img class="img-fluid" id="imagePreview" src="{% if instance %}{{ instance.logo.url }}{% endif %}" alt="" >
+                                        <div class="row">
+                                            {% comment %} <h3>hosting:</h3> {% endcomment %}
+                                            <div class="col-xl-6">
+                                                     <!-- Date View -->
+                                                     <div class="mb-3">
+                                                        <label for="{{ hosting_form.title.id_for_label }}" class="form-label">Title</label>
+                                                        <input type="text" name=" {{ hosting_form.title.name }}" id="{{ hosting_form.title.id_for_label }}" class="form-control" required
+                                                               value="{% if hosting_form.instance %}{{ hosting_form.instance.title }}{% endif %}" placeholder="Enter hostingName">
+                                                    </div>
+                                                </div>
+                                                {% comment %} <div class="col-xl-6">
+                                                    <div class="mb-3">
+                                                        <label for="{{ hosting_form.description.id_for_label }}" class="form-label">Description</label>
+                                                        <textarea name="{{ hosting_form.description.name }}" id="{{ hosting_form.description.id_for_label }}" class="form-control" required placeholder="Enter description">{% if hosting_form.instance %}{{ hosting_form.instance.description }}{% endif %}</textarea>
+                                                    </div>
+                                                </div> {% endcomment %}
+                                                <div class="col-xl-6">
+                                                    <h3>Fields:</h3>
+                                                    <div id="field_list" >
+                                                        {{ formset.management_form }}
+                                                        {% for form in formset %}
+                                                                {{ form.as_p }}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            <div class="col-auto">
+                                                <button type="button" class="btn btn-danger chat-send waves-effect waves-light" id="add_field_button">Add Field</button>
+                                                {% if hosting_form.instance.id %}
+                                                    <button type="submit" class="btn btn-danger chat-send waves-effect waves-light">Update </button>
+                                                {% else %}
+                                                    <button type="submit" class="btn btn-danger chat-send waves-effect waves-light">Save</button>
+                                                {% endif %}
                                             </div>
+                                            </div> <!-- end col-->
                                         </div>
-                                          <!-- input -->
-                                        </div>
-                                        <div class="col-xl-6">
-
-                                          <div class="mb-3">
-                                             <label class="form-label">Description</label>
-                                            {{form.description}}
-                                          </div>
-                                        </div>
-                                          <div class="col-lg-12">
-                                             {% if instance %}
-                                             <button type="submit" class="btn btn-primary">Update</button>
-                                         {% else %}
-                                             <button type="submit" class="btn btn-primary">Add</button>
-                                         {% endif %}
-                                        </div>
-                                       </div>
-                                       </form>
-                        
+                                        <!-- end row -->
+                                </div> <!-- end card-->
+                            </div> <!-- end col-->
+                        </div>
+                        <!-- end row-->
+                    </form>
                     </div> <!-- container -->
-
                 </div> <!-- content -->
-
-
-      {% endblock %}
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.getElementById('add_field_button').addEventListener('click', function() {
+                            var formsetPrefix = '{{ formset.prefix }}';
+                            var totalForms = parseInt(document.getElementById('id_' + formsetPrefix + '-TOTAL_FORMS').value);
+                            var newFieldIndex = totalForms;  // Index of the new field form
+                            var fieldList = document.getElementById('field_list');
+                            var newFieldForm = document.createElement('div');
+                            newFieldForm.className = 'form-row mb-3'; // Add class for styling
+                            // Replace '__prefix__' in the formset HTML with the new index
+                            var newFormsetHtml = '{{ formset.empty_form|escapejs }}'.replace(/__prefix__/g, newFieldIndex);
+                            newFieldForm.innerHTML = newFormsetHtml;
+                            fieldList.appendChild(newFieldForm);
+                            // Update the TOTAL_FORMS count
+                            document.getElementById('id_' + formsetPrefix + '-TOTAL_FORMS').value = totalForms + 1;
+                        });
+                    });
+                    </script>
+       {%endblock%}

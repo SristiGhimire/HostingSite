@@ -10,7 +10,7 @@ Service
 <style>
   .custom-box {
     background-color: #f0f0f0; /* Your desired background color */
-    padding: 20px; /* Optional: Add some padding */
+    padding: 50px; /* Optional: Add some padding */
     border-radius: 30px; /* Optional: Match the inner box border radius */
 }
 
@@ -20,7 +20,19 @@ Service
   align-items: center;
   flex-direction: column; /* Ensure the content is centered vertically */
   text-align: center; /* Center text within the div */
+
 }
+
+.item-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Optional: add some space between items */
+}
+
+.item-content img {
+    margin-right: 10px; /* Adjust the spacing between the image and the title as needed */
+}
+
 
 
 
@@ -30,38 +42,35 @@ Service
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-9 mt-5  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-right: 5px;">
+      <div class="col-lg-8 mt-5  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-right: 5px;">
         <div class ="row justify-content-center">
+          
+          <img src="{{item.image.url}}" alt="" style="height:500px; width:800px; border-radius: 10px; object-fite:cover; margin-bottom: 30px;">
           <h2 class="justify-content-center" style="color:black;">{{item.title}}</h2>
-          <img src="{{item.logo.url}}" alt="" style="height:300px; width:300px; border-radius: 10px;">
           <p style="color:white; text-align: justify;">{{item.description|safe}}</p>
         </div>
       </div>
 
       
-      <div class="col-lg-3 mt-5 wow fadeInRight custom-box" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-left: 30px;">
-        <div class = "row justify-content-center">
-        <div class="section-heading">
-          <h2 class="center-content" style="color:black; margin-bottom: 20px;">Other services</h2>
-        </div>
-        {% for item in relatedservice %}
-        <div class="item mb-3" data-wow-duration="1s" data-wow-delay="0.3s">
-          
-            <div class="center-content">
-              <a href="{% url 'app:serviceDetail' item.id %}" target="">
-                <img src="{{item.logo.url}}" alt="" style="width: 120px; height: 100px; border-radius: 10px;">
-              </a>
+      <div class="col-lg-4 mt-5 wow fadeInRight custom-box" data-wow-duration="1s" data-wow-delay="0.2s" style="margin-left: 30px;">
+        <div class="row justify-content-center">
+            <div class="section-heading">
+                <h2 class="center-content" style="color:black; margin-bottom: 20px;">Other services</h2>
             </div>
-        
-        <div class="showed-content center-content">
-            <h4>{{item.title}}</h4>
-            <p>{{item.description|safe|truncatechars:40}}</p>
+            {% for item in relatedservice %}
+            <div class="item mb-3" data-wow-duration="1s" data-wow-delay="0.3s">
+                <div class="item-content">
+                    <a href="{% url 'app:serviceDetail' item.id %}" target="">
+                        <img src="{{item.logo.url}}" alt="" style="width: 80px; height: 80px; border-radius: 5px;">
+                    </a>
+                    <div>
+                        <h4 style="margin-bottom:-16px">{{item.title}}</h4>
+                        <p  >{{item.description|safe|truncatechars:80}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-    
-</div>
-{% endfor %}
-
-      </div>
     </div>
   </div>
 </div>

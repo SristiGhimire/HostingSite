@@ -6,7 +6,7 @@ index
 {% block content %}
 
 <!--Client CSS-->
-<style>
+{% comment %} <style>
         /* bx-wrapper Styling */
       .bx-wrapper {
         box-shadow: none !important;
@@ -95,7 +95,10 @@ index
             margin: 3px 5px;
         }
       }
-</style>
+</style> {% endcomment %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -257,7 +260,7 @@ index
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <!--Hosting package-->
-<section class="price-sec" style="background-color: white;">
+<section class="price-sec" style="margin-top: -100px; background-color: white;">
   <div class="container-fluid">
     <div class="container">
       <div class="row" style="margin-bottom: 60px; justify-content: center; align-items: center;">
@@ -268,7 +271,7 @@ index
         </div>
       </div>
 
-      <div class="row section-heading wow fadeInLeft mb-5" data-wow-duration="2s" data-wow-delay="0.2s" style="margin-top: 20px; margin-bottom: 100px;">
+      <div class="row section-heading wow fadeInLeft mb-5" data-wow-duration="2s" data-wow-delay="0.2s" style="margin-top: 20px;">
         <ul class="nav justify-content-center">
           {% for item in hosting %}
           <li class="nav-item">
@@ -287,20 +290,21 @@ index
             <div class="card text-center">
               <div class="title">
                 <i class="fa fa-paper-plane"></i>
-                <h2>Basic</h2>
+                <h2>{{hosting_option.selectPackages}}</h2>
               </div>
               <div class="price">
                 <h4><sup>$</sup>{{hosting_option.feePerMonth}}</h4>
               </div>
               <div class="option">
                 <ul>
-                  <li><i class="fa fa-check"></i> 10 GB Space</li>
-                  <li><i class="fa fa-check"></i> 3 Domain Names</li>
-                  <li><i class="fa fa-check"></i> 20 Email address</li>
-                  <li><i class="fa fa-times"></i> Live Support</li>
+                  <li>{{hosting_option.storage}} Space</li>
+                  <li>{{hosting_option.bandwidth}}  Bandwidth</li>
+                  <li>{{hosting_option.accountResold}} accounts resold</li>
+                  <li>{{hosting_option.support}}  Support</li>
+                  <li>{{hosting_option.support}}  Support</li>
                 </ul>
               </div>
-              <a href="#">Order Now</a>
+              <a href="{% url 'app:contact' %}">Contact Us</a>
             </div>
           </div>
           {% endfor %}
@@ -347,7 +351,7 @@ index
 
 
   <!--About Section-->
-  <div id="about" class="about-us section d-md-flex d-none">
+  <div id="about" class="about-us section d-md-flex d-none" style="margin-top: -20px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -366,7 +370,7 @@ index
   </div>
   <!--End About Section-->
 
-  <div id="services" class="our-services section d-md-none d-sm-flex" style="margin-top: 5%;">
+  <div id="services" class="our-services section d-md-none d-sm-flex">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
@@ -400,14 +404,14 @@ index
       <div class="row">
         {% for item in service %}
         <div class="col-lg-3 col-sm-6">
-          <a href="{% url 'app:service' %}">
+          <a href="{% url 'app:serviceDetail' item.id %}">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="hidden-content">
                 <h4>{{item.title}}</h4>
                 <p>{{item.description|safe|truncatechars:50}}</p>
               </div>
               <div class="showed-content">
-                <img src="{{item.logo.url}}" alt="">
+                <img src="{{item.logo.url}}" alt="" style=" height:150px; width: 200px; object-fit: cover;">
               </div>
             </div>
           </a>
@@ -485,16 +489,124 @@ index
 
 
     <!--Client Section-->
-    <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp; margin-bottom: 50px; margin-top: 100px;">
-      <h3 class="mt-5 mb-5"><span>Our </span> Clients</h3>
-      <div class="line"></div>
-  </div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  .logo-slider {
+    overflow: hidden;
+    position: relative;
+  }
+  .logo-slider-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    flex-wrap: nowrap; /* Prevent slides from wrapping */
+  }
+  .logo-slide {
+    flex: 0 0 auto;
+    margin-right: 20px; /* Adjust as needed */
+  }
+  .control-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .control-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+  }
+  .prev-btn {
+    left: 10px;
+  }
+  .next-btn {
+    right: 10px;
+  }
+</style>
 
-    <div class="bxslider logosImgs">
+<div class="container" style="margin-top: 20px; margin-bottom: 100px;">
+  <div class="row" style="margin-bottom: 60px; justify-content: center; align-items: center;">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="section-heading wow fadeIn" data-wow-duration="2s" data-wow-delay="0.2s">
+        <h2 style="margin-left: 85px;">Our clients</h2>
+      </div>
+    </div>
+  </div>
+  <div id="logoSlider" class="logo-slider">
+    <button class="control-btn prev-btn">&#10094;</button>
+    <div class="logo-slider-inner d-flex">
       {% for item in client %}
-        <div><a href="{{item.url}}"><img src="{{item.logo.url}}" style="height:120px;width:120px;object-fit:cover;" alt="ClientName" ></a></div>
+      <div class="logo-slide"><a href="{{item.url}}"><img src="{{item.logo.url}}" style="height:120px;width:120px;object-fit:cover;" alt="ClientName"></a></div>
+      {% endfor %}
+      <!-- Add more logo slides as needed -->
+      <!-- Cloned slides for seamless looping -->
+      {% for item in client %}
+      <div class="logo-slide cloned"><a href="{{item.url}}"><img src="{{item.logo.url}}" style="height:120px;width:120px;object-fit:cover;" alt="ClientName"></a></div>
       {% endfor %}
     </div>
+    <button class="control-btn next-btn">&#10095;</button>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var slideWidth = $('.logo-slide').outerWidth(true); // Include margin, border, and padding
+    var slideCount = $('.logo-slide').not('.cloned').length;
+    var visibleSlides = 5;
+    var sliderInner = $('.logo-slider-inner');
+
+    function slideLogos(direction) {
+      if (direction === 'next') {
+        sliderInner.css('transition', 'transform 0.5s ease');
+        sliderInner.css('transform', 'translateX(-' + slideWidth + 'px)');
+        setTimeout(function() {
+          sliderInner.css('transition', 'none');
+          sliderInner.css('transform', 'translateX(0)');
+          sliderInner.append(sliderInner.children().first());
+        }, 500);
+      } else if (direction === 'prev') {
+        sliderInner.css('transition', 'none');
+        sliderInner.css('transform', 'translateX(-' + slideWidth + 'px)');
+        sliderInner.prepend(sliderInner.children().last());
+        setTimeout(function() {
+          sliderInner.css('transition', 'transform 0.5s ease');
+          sliderInner.css('transform', 'translateX(0)');
+        }, 50);
+      }
+    }
+
+    $('.prev-btn').click(function() {
+      slideLogos('prev');
+    });
+
+    $('.next-btn').click(function() {
+      slideLogos('next');
+    });
+
+    function autoSlide() {
+      slideLogos('next');
+    }
+
+    var autoSlideInterval = setInterval(autoSlide, 2000); // Change slide duration as needed (milliseconds)
+
+    $('.logo-slider').mouseenter(function() {
+      clearInterval(autoSlideInterval);
+    });
+
+    $('.logo-slider').mouseleave(function() {
+      autoSlideInterval = setInterval(autoSlide, 2000);
+    });
+  });
+</script>
+
+
+
+
     <!--End Client Section-->
 
 
@@ -502,7 +614,7 @@ index
   <!--Contact Section-->
   <div id="contact" class="contact-us section">
     <div class="container">
-      <div class="row">
+      <div class="row" style="margin-top: -69px;">
         <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <div class="section-heading">
             <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
@@ -555,7 +667,7 @@ index
 
 
 
-<script>
+{% comment %} <script>
   $('.bxslider').bxSlider({
     autoHover: true,
     auto: true,
@@ -568,7 +680,8 @@ index
     captions: true,
     slideMargin: 5,
   });
-</script>
+</script> {% endcomment %}
+
 
 {% endblock %}
 

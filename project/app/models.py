@@ -8,6 +8,7 @@ class Service(models.Model):
     logo = models.ImageField(upload_to= 'Serviceimage/')
     title = models.CharField(max_length=200)
     description = RichTextField()
+    image = models.ImageField(upload_to= 'Serviceimage/')
    
     def __str__(self):
         return self.title
@@ -47,21 +48,21 @@ class Hosting(models.Model):
         
 
 selectPackage =(
-    ('personal','Personal'),
+    ('personal','Personal'),            
     ('business','Business'),
     ('enterprise','Enterprise'),
     ('standard','Standard'),
     ('premium','Premium'),
-    ('gold','Gold'))
+    ('gold','Gold'))        
 
 
 class HostingPackage(models.Model):
     hosting= models.ForeignKey(Hosting,on_delete= models.SET_NULL,null=True, blank=True,  related_name ='hostings')
     selectPackages=models.CharField(max_length=150, choices=selectPackage)
-    storage=models.FloatField()
+    storage=models.CharField(max_length=200)
     bandwidth=models.CharField(max_length=200)
-    support=models.BooleanField(default=True)
-    domain=models.BooleanField(default=True)
+    support=models.CharField(max_length=200)
+    domain=models.CharField(max_length=200)
     accountResold=models.PositiveIntegerField()
     feePerMonth=models.FloatField()
     
