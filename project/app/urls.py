@@ -9,4 +9,4 @@ urlpatterns = [
     path('hosting', views.hosting, name='hosting'),
     path('service', views.service, name='service'),
     path('serviceDetail/<int:id>/', views.serviceDetail, name = 'serviceDetail'),
-]
+    ]

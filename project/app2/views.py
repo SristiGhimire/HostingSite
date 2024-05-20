@@ -5,6 +5,10 @@ from .forms import *
 from django.contrib import auth
 from django.contrib import messages
 from django.forms import inlineformset_factory
+from django.shortcuts import render, redirect
+from django.contrib import messages, auth
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate
 # Create your views here.
 
 def index(request):
@@ -284,4 +288,69 @@ class ServiceDeleteView(View):
 def userlogout(request):
     auth.logout(request)
     messages.info(request, "logout successfully..")
-    return redirect('app:signin')
+    return redirect('dashboard:signin')
+
+
+# def login(request):
+#     try:
+#         if request.user.is_authenticated:
+#             return render(request,'app2/index.html')
+#         if request.method =="POST":
+#             email = request.POST['useremail']
+#             print(email)
+#             password = request.POST['password']
+#             print(password)
+#             # user_obj = User.objects.filter(email=email)
+#             user_obj = authenticate(email=email, password=password)
+#             print(user_obj)
+#             if not user_obj: #not user_obj.exists():
+#                 messages.warning(request,"Invalid username and password...")
+#                 return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+#             user_obj = authenticate(email=email, password=password)
+#             if user_obj and user_obj.is_admin or user_obj.is_editor:
+#                 auth.login(request, user_obj)
+#                 return redirect('dashboard:index')
+#             messages.warning(request,'Inavlid Password')
+#             return redirect('dashboard:login')
+#         return render(request,'app2/login.html')
+#     except Exception as e:
+#         print(e)
+#         messages.warning(request,'something wrong...')
+#         return redirect('dashboard:login')
+
+
+
+def signin(request):
+    try:
+        if request.user.is_authenticated:
+            if request.user.is_superuser:
+                return render(request, 'app2/index.html')
+            else:
+                messages.warning(request, "You do not have permission to access this page.")
+                return redirect('dashboard:login')
+        
+        if request.method == "POST":
+            email = request.POST.get('useremail')
+            password = request.POST.get('password')
+
+            # Ensure that authenticate uses email for the username field
+            user_obj = authenticate(request, username=email, password=password)
+            
+            if user_obj is None:
+                messages.warning(request, "Invalid username or password.")
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            
+            if user_obj.is_superuser:
+                auth.login(request, user_obj)
+                return redirect('dashboard:index')
+            else:
+                messages.warning(request, "You do not have permission to access this page.")
+                return redirect('dashboard:login')
+        
+        return render(request, 'app2/sign-in.html')
+
+    except Exception as e:
+        print(e)
+        messages.warning(request, 'Something went wrong...')
+        return redirect('dashboard:signin')
+

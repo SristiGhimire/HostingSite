@@ -5,9 +5,9 @@ from .views import *
 
 app_name="dashboard"
 urlpatterns = [
+    path('signin', views.signin, name='signin'),
     path('',views.index, name='index'),
-    # path('servicelist',views.servicelist, name='servicelist'),
-    # path('addservice',views.addservice, name='addservice'),
+
     path('team',views.team, name='team'),
     path('add/hosting',views.create_or_edit_hosting, name='add_Hosting'),
     path('edit/hosting/<int:hosting_id>/',views.create_or_edit_hosting, name='edit_Hosting'),
@@ -37,5 +37,8 @@ urlpatterns = [
     path('Service-delete/<int:id>/', ServiceDeleteView.as_view(), name='deleteService'),
 
     path('userlogout/', views.userlogout, name='userlogout'),
+
+    
+
 
 ]

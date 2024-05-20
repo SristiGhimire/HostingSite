@@ -54,3 +54,5 @@ def serviceDetail(request, id):
 
 
 
+
+
