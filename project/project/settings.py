@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app',
     'ckeditor',
     'app2',
+    'useraccount'
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+AUTH_USER_MODEL = 'useraccount.User'
 
 DATABASES = {
     'default': {

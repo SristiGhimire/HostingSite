@@ -109,6 +109,7 @@ html, body {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url(../images/gif.gif); */
 }
 
 a {
@@ -1119,6 +1120,7 @@ Portfolio
 
 .our-portfolio .item:hover .showed-content {
   top: 90px;
+  
 }
 
 .our-portfolio .hidden-content {
@@ -1166,15 +1168,15 @@ Portfolio
   z-index: 3;
   background-color: #fff;
   text-align: center;
-  padding: 50px;
+  /* padding: 50px; */
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
   transition: all 0.5s;
+  /* height: 200px;
+  width: 260px; */
 }
 
-.our-portfolio .showed-content img {
-  max-width: 100px;
-}
+
 
 
 /* 

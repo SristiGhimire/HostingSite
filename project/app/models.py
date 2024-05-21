@@ -124,6 +124,7 @@ class CompanyDetails(models.Model):
     discordUrl = models.URLField()
     livechatUrl = models.URLField()
     companyDescription = models.TextField()
+    gif = models.ImageField(upload_to="gif")
 
     def __str__(self):
         return self.companyAddress

@@ -161,19 +161,19 @@
                                 </span>
                                 <span class="d-lg-flex flex-column gap-1 d-none">
                                     {% comment %} <h5 class="my-0"> {{request.user.fullname}}</h5> {% endcomment %}
-                                    <h5 class="my-0">full name</h5>
+                                    <h5 class="my-0">{{request.user.firstname}}</h5>
                                     {% comment %} <h6 class="my-0 fw-normal">{{request.user.email}}</h6> {% endcomment %}
-                                    <h6 class="my-0 fw-normal">email</h6>
+                                    <h6 class="my-0 fw-normal">{{request.user.email}}</h6>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                                 <!-- item-->
                                 <div class=" dropdown-header noti-title">
                                     {% comment %} <h6 class="text-overflow m-0">Welcome {{request.user.fullname}}!</h6> {% endcomment %}
-                                    <h6 class="text-overflow m-0">Welcome </h6>
+                                 <h6 class="text-overflow m-0">Welcome </h6>
                                 </div>
-                                {% comment %} <a href="{% url 'dashboard:change_password' %}" class="dropdown-item"> {% endcomment %}
-                                    <a href="" class="dropdown-item">
+                                <a href="{% url 'useraccount:change_password' %}" class="dropdown-item">
+                                    <a href="{% url 'useraccount:change_password' %}" class="dropdown-item">
                                     <i class="mdi mdi-account-edit me-1"></i>
                                     <span>Change Password</span>
                                 </a>
@@ -181,7 +181,7 @@
                              
                                 <!-- item-->
                                 {% comment %} <a href="{% url 'dashboard:logout' %}" class="dropdown-item"> {% endcomment %}
-                                    <a href="{% url 'dashboard:userlogout' %}" class="dropdown-item">
+                                    <a href="{% url 'useraccount:userlogout' %}" class="dropdown-item">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>

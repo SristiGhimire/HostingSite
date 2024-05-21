@@ -224,6 +224,7 @@ https://templatemo.com/tm-562-space-dynamic
 </head>
 
 <body>
+  {% comment %} style="background-image: url({{footer.gif.url}});" {% endcomment %}
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -291,9 +292,9 @@ https://templatemo.com/tm-562-space-dynamic
           </form> {% endcomment %}
           <ul>
             <li>
-              <img src="{{footer.companyLogo.url}}" alt="" style="height:100; width: 200px; margin-bottom:-52px">
+              <img src="{{footer.companyLogo.url}}" alt="" style="height:100; width: 200px; margin-bottom: 8px">
           
-              <p >{{footer.companyDescription|safe|truncatechars:100}}</p>
+              <p>{{footer.companyDescription|safe|truncatechars:100}}</p>
             </li>
           </ul>
       </div>
