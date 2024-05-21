@@ -122,7 +122,6 @@ index
 
   .nav-link.active {
       background: #64b5f6;
-      {% comment %} background: linear-gradient(-45deg, #83c5be, #adb5bd); {% endcomment %}
       color: #fff;
       border: linear-gradient(-45deg, #83c5be, #adb5bd);
   }
@@ -379,8 +378,8 @@ index
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="section-heading">
-            <h2>{{about.title}}</h2>
-            <p>{{about.description|safe}}</p>
+            <h2 style="color:white;">{{about.title}}</h2>
+            <p style="color:white;">{{about.description|safe}}</p>
           </div>
           
         </div>
@@ -608,58 +607,68 @@ index
 
     <!--End Client Section-->
 
-    <div id="contact" class="contact-us section d-none d-md-flex" style="height:600px;">
-      <div class="container">
-        <div class="row" style="margin-top: -69px;">
-          <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
-            <div class="section-heading">
-              <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
-              <div class="phone-info">
-                <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
-              </div>
+  {% comment %} <style>
+    @media (max-width: 820px) {
+      #contact.contact-us {
+        height: 600px;
+      }
+    }
+  </style> {% endcomment %}
+  
+  <!--Contact Section-->
+  <div id="contact" class="contact-us section d-none d-md-flex" style="height:600px;">
+    <div class="container">
+      <div class="row" style="margin-top: -69px;">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Feel Free To Send Us a Message About Your Website Needs</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doer ket eismod tempor incididunt ut labore et dolores</p>
+            <div class="phone-info">
+              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">010-020-0340</a></span></h4>
             </div>
           </div>
-          <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-            <form id="contact" action="{% url 'app:contact' %}" method="post">
-              {% csrf_token %}
-              <div class="row">
-                  <div class="col-lg-6">
-                      <fieldset>
-                          <input type="text" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                      </fieldset>
-                  </div>
-                  <div class="col-lg-6">
-                      <fieldset>
-                          <input type="text" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
-                      </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                      <fieldset>
-                          <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required>
-                      </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                      <fieldset>
-                          <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required></textarea>
-                      </fieldset>
-                  </div>
-                  <div class="col-lg-12">
-                      <fieldset>
-                          <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                      </fieldset>
-                  </div>
-              </div>
-              <div class="contact-dec">
-                  <img src="{% static 'app/assets/images/contact-decoration.png' %}" alt="">
-              </div>
-          </form>
-          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="{% url 'app:contact' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6">
+                    <fieldset>
+                        <input type="text" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                    </fieldset>
+                </div>
+                <div class="col-lg-6">
+                    <fieldset>
+                        <input type="text" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required>
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required></textarea>
+                    </fieldset>
+                </div>
+                <div class="col-lg-12">
+                    <fieldset>
+                        <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="contact-dec">
+                <img src="{% static 'app/assets/images/contact-decoration.png' %}" alt="">
+            </div>
+        </form>
         </div>
       </div>
     </div>
-  
-  <!--Contact Section-->
+  </div>
+
+
+
   <div id="contact" class="contact-us section d-md-none d-sm-flex">
     <div class="container">
       <div class="row" style="margin-top: -69px;">
