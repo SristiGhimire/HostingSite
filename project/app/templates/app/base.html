@@ -247,7 +247,7 @@ https://templatemo.com/tm-562-space-dynamic
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="{% url 'app:index' %}">
-              <img src="{{footer.companyLogo.url}}" style="height: 80px; width: 200px;">
+              <img src="{{footer.companyLogo.url}}" style="height: 80px; width: 200px; float:left;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -277,76 +277,114 @@ https://templatemo.com/tm-562-space-dynamic
 
   {% endblock %}
 
-
-<footer class="footer-10" >
-  <div class="container">
-      <div class="row ">
-        <div class="col-md-3 mb-md-0 mb-4 mt-5">
-          {% comment %} <h2 class="footer-heading">Subscribe</h2>
-          <form action="#" class="subscribe-form">
-            <div class="form-group d-flex">
-              <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-              <button type="submit" class="form-control submit rounded-right">Subscribe</button>
-            </div>
-            <span class="subheading">Get hosting updates in your mailbox</span>
-          </form> {% endcomment %}
+  <footer class="footer-10">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-md-0 mb-4 mt-5 text-center text-md-left">
           <ul>
             <li>
-              <img src="{{footer.companyLogo.url}}" alt="" style="height:100; width: 200px; margin-bottom: 8px">
-          
+              <img src="{{footer.companyLogo.url}}" alt="" style="height:100px; width: 200px; margin-bottom: 8px;">
               <p>{{footer.companyDescription|safe|truncatechars:100}}</p>
             </li>
           </ul>
-      </div>
-          <div class="col-md-9 mt-5">
-              <div class="row">
-                <div class="col-md-5 mb-md-0 mb-5">
-                  <h2 class="footer-heading">Reach us</h2>
-                  <ul class="list-unstyled">
-                      <li><a href="#" class="d-block"><i class="fas fa-phone icon"></i>+91-9876543451</a></li>
-                      <li><a href="#" class="d-block"><i class="fas fa-envelope icon"></i>cloudbird@gmail.com</a></li>
-                    </ul>
-              </div>
-                  <div class="col-md-4 mb-md-0 mb-4">
-                      <h2 class="footer-heading">About</h2>
-                      <ul class="list-unstyled">
-                          <li><a href="#" class="d-block">Home</a></li>
-                          <li><a href="#" class="d-block">Service</a></li>
-                          <li><a href="#" class="d-block">Hosting</a></li>
-                          <li><a href="#" class="d-block">About</a></li>
-                          <li><a href="#" class="d-block">Support</a></li>
-                        </ul>
-                  </div>
-                  <div class="col-md-3 mb-md-0 mb-3">
-                      <h2 class="footer-heading">Company</h2>
-                      <ul class="list-unstyled">
-                          <li><a href="#" class="d-block">Our services</a></li>
-                          <li><a href="#" class="d-block">Clients</a></li>
-                          <li><a href="#" class="d-block">Contact</a></li>
-                          <li><a href="#" class="d-block">Press</a></li>
-                        </ul>
-                  </div>
-                  
-              </div>
         </div>
-        
-    </div>
+        <div class="col-md-9 mt-5">
+          <div class="row d-none d-md-flex">
+            <div class="col-md-5 mb-md-0 mb-5 text-center text-md-left">
+              <h2 class="footer-heading">Reach us</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="d-block"><i class="fas fa-phone icon"></i> +91-9876543451</a></li>
+                <li><a href="#" class="d-block"><i class="fas fa-envelope icon"></i> cloudbird@gmail.com</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-md-0 mb-4 text-center text-md-left">
+              <h2 class="footer-heading">About</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="d-block">Home</a></li>
+                <li><a href="#" class="d-block">Service</a></li>
+                <li><a href="#" class="d-block">Hosting</a></li>
+                <li><a href="#" class="d-block">About</a></li>
+                <li><a href="#" class="d-block">Support</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 mb-md-0 mb-3 text-center text-md-left">
+              <h2 class="footer-heading">Company</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="d-block">Our services</a></li>
+                <li><a href="#" class="d-block">Clients</a></li>
+                <li><a href="#" class="d-block">Contact</a></li>
+                <li><a href="#" class="d-block">Press</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="row d-flex d-md-none">
+            <div class="col-12 mb-4 text-center">
+              <h2 class="footer-heading">Reach us</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="d-block"><i class="fas fa-phone icon"></i> +91-9876543451</a></li>
+                <li><a href="#" class="d-block"><i class="fas fa-envelope icon"></i> cloudbird@gmail.com</a></li>
+              </ul>
+            </div>
+            <div class="row">
+            <div class="col-6">
+              <h2 class="footer-heading">About</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="d-block">Home</a></li>
+                <li><a href="#" class="d-block">Service</a></li>
+                <li><a href="#" class="d-block">Hosting</a></li>
+                <li><a href="#" class="d-block">About</a></li>
+                <li><a href="#" class="d-block">Support</a></li>
+              </ul>
+            </div>
+            <div class="col-6 ">
+              <h2 class="footer-heading">Company</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="d-block">Our services</a></li>
+                <li><a href="#" class="d-block">Clients</a></li>
+                <li><a href="#" class="d-block">Contact</a></li>
+                <li><a href="#" class="d-block">Press</a></li>
+              </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
       <div class="row mt-5 pt-4 border-top">
-<div class="col-md-6 col-lg-8 mb-md-0 mb-4">
-  <p class="copyright mb-0" style="color: rgba(255, 255, 255, 0.3);">{{footer.companyName}} | 
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. | This is made by <a href="" target="_blank">kitwosd</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-</div>
-<div class="col-md-6 col-lg-4 text-md-right">
-  <ul class="ftco-footer-social p-0" style="color: black;">
-  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fab fa-twitter icon"></i></a></li>
-  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook icon"></i></a></li>
-  <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="LinkedIn"><i class="fab fa-linkedin icon"></i></span></a></li>
-  </ul>
-</div>
-</div>
-  </div>
-</footer>
+        <div class="col-md-6 col-lg-8 mb-md-0 mb-4">
+          <p class="copyright mb-0" style="color: rgba(255, 255, 255, 0.3);">
+            {{footer.companyName}} | 
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved. | This is made by <a href="" target="_blank">kitwosd</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4 text-center text-md-right">
+          <ul class="ftco-footer-social p-0" style="color: black; margin-top: 26px;">
+            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fab fa-twitter icon"></i></a></li>
+            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook icon"></i></a></li>
+            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="LinkedIn"><i class="fab fa-linkedin icon"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <style>
+    @media (max-width: 767.98px) {
+      .footer-10 .col-12, .footer-10 .col-6 {
+        text-align: center;
+      }
+      .footer-10 .row > .col-md-9 .row {
+        display: flex;
+        align-items: center;
+      }
+      .footer-10 .col-12, .footer-10 .col-6 {
+        max-width: 100%;
+      }
+    }
+  </style>
+  
+
 
 
     <script src="{% static 'app/js1/jquery.min.js' %}"></script>

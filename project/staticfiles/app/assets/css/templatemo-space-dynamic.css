@@ -382,7 +382,7 @@ header
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #adb5bd!important;
+  color: #fff!important;
 }
 
 .background-header .main-nav .nav li:hover a,
@@ -595,7 +595,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #adb5bd;
+  color: white;
 }
 
 @media (max-width: 1200px) {
@@ -628,7 +628,7 @@ header
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #adb5bd!important;
+    color: black!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -1310,7 +1310,7 @@ contact
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 650px;
+  height: 1036px;
 }
 
 .contact-us .section-heading h2,
