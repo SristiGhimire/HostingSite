@@ -11,7 +11,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from useraccount.decorators import login_required# Create your views here.
+from useraccount.decorators import login_required
+# Create your views here.
 
 @login_required
 def index(request):

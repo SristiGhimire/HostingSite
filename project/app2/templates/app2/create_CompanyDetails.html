@@ -86,9 +86,9 @@ service list
                                         <div class="col-xl-6">
 
                                             <div class="mb-3">
-                                                <label class="form-label">Description</label>
-                                               {{form.companyDescription}}
-                                             </div>
+                                                <label for="{{form.companyDescription.id_for_label }}" class="form-label">Description</label>
+                                                <textarea name="{{form.companyDescription.name }}" id="{{form.companyDescription.id_for_label }}" class="form-control" required placeholder="Enter companyDescription">{% if form.instance %}{{ form.instance.description }}{% endif %}</textarea>
+                                            </div>
 
 
                                             <div class="mb-3">
